@@ -2,30 +2,22 @@
   <div class="row">
     <div class="col1">
       <label for="nome">Nome</label>
-      <div *ngIf="!nome.valid && nome.touched">
-        Nome é obrigatório
-      </div>
+
       <input id="nome" type="text" name="nome" ngModel required #nome="ngModel">
 
       <label for="email">E-mail</label>
       <input id="email" type="text" name="email" ngModel required email #email="ngModel">
-      <div *ngIf="!email.valid && email.touched">
-        Email inválido
-      </div>
+
       <label for="numero">WhatsApp</label>
       <input id="numero" type="text" name="numero" ngModel required #numero="ngModel">
-      <div *ngIf="!numero.valid && numero.touched">
-        Número é obrigatório
-      </div>
+
     </div>
     <div class="col2">
 
       <label for="mensagem">Mensagem</label>
       <textarea id="mensagem" type="text" name="mensagem" rows="6" name="mensagem" ngModel required></textarea>
       <button type="submit" mat-button [disabled]="!f.valid" #botao><span>Enviar</span></button>
-      <div>
-        {{ botao.className }}
-      </div>
+
     </div>
   </div>
 
