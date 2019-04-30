@@ -1,24 +1,33 @@
 <form #f="ngForm" (ngSubmit)="onSubmit(f)">
   <div class="row">
     <div class="col1">
+
       <label for="nome">Nome</label>
+      <input id="nome" type="text" name="nome" ngModel required #nome="ngModel" [(ngModel)]="adicionarValorNome">
+      <div id="nomeValidator" *ngIf="!nome.valid && nome.touched"><span>Preencha o nome com mais de 3 letras</span>
+      </div>
 
-      <input id="nome" type="text" name="nome" ngModel required #nome="ngModel">
-
-      <label for="email">E-mail</label>
-      <input id="email" type="text" name="email" ngModel required email #email="ngModel">
-
-      <label for="numero">WhatsApp</label>
-      <input id="numero" type="text" name="numero" ngModel required #numero="ngModel">
-
+      <div class="margemforms">
+        <label for="email">E-mail</label>
+        <input id="email" type="text" name="email" ngModel required email #email="ngModel"
+          [(ngModel)]="adicionarValorEmail">
+        <div id="emailValidator" *ngIf="!email.valid && email.touched"><span>E-mail inválido</span></div>
+      </div>
+      <div class="margemforms">
+        <label for="numero">WhatsApp</label>
+        <input id="numero" type="text" name="numero" ngModel required #numero="ngModel"
+          [(ngModel)]="adicionarValorNumero" mask="(00) 00000-0000">
+        <div id="numeroValidator" *ngIf="!numero.valid && numero.touched"><span>Informe um número existente</span></div>
+      </div>
     </div>
     <div class="col2">
 
       <label for="mensagem">Mensagem</label>
-      <textarea id="mensagem" type="text" name="mensagem" rows="6" name="mensagem" ngModel required></textarea>
+      <textarea id="mensagem" type="text" name="mensagem" rows="5" name="mensagem" ngModel required
+        [(ngModel)]="adicionarValorMensagem"></textarea>
       <button type="submit" mat-button [disabled]="!f.valid" #botao><span>Enviar</span></button>
 
     </div>
   </div>
-
+  <mat-progress-bar mode="indeterminate" *ngIf="progress"></mat-progress-bar>
 </form>

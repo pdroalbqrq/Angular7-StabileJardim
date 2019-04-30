@@ -44,6 +44,10 @@ input[type="submit"]:hover {
   background-color: #192224;
 }
 
+.margemInput{
+    margin-top: 11px
+}
+
 label {
   font-weight: bold;
   color: #222d30;
@@ -60,6 +64,7 @@ label {
   margin: 20px;
   margin-top: 30px;
 }
+
 .col2 {
   grid-column: span 6;
   margin: 20px;
@@ -68,11 +73,6 @@ label {
 
 .ng-invalid.ng-touched:not(form){
   border: 2px solid rgb(255, 0, 64);
-  
 }
-#nomeValidator, #numeroValidator, #emailValidator{
-    font-weight: bold;
-    color:red;
-    margin-top: 0px;
-    padding-top: 0px;
-}
+
+

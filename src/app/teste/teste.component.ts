@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataSendService } from '../service/data-send.service';
+
 
 @Component({
   selector: 'app-teste',
@@ -6,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./teste.component.scss']
 })
 export class TesteComponent implements OnInit {
-
-  constructor() { }
+  carregar: boolean = true;
+  clientes;
+  constructor(private dataSend: DataSendService) { }
 
   ngOnInit() {
+    this.carregar = true;
+   this.dataSend.getUsers().subscribe((data)=>{this.clientes = data; this.carregar = false});
   }
 
 }

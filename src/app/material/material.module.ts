@@ -6,8 +6,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatGridListModule } from '@angular/material'
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @NgModule({
@@ -21,8 +24,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
-    MatGridListModule
-    
+    MatGridListModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
+    MatSnackBarModule,
+    MatFormFieldModule
+
   ],
   exports: [
     MatButtonModule,
@@ -31,7 +38,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
-    MatGridListModule
+    MatGridListModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule,
+    MatSnackBarModule,
+    MatFormFieldModule
   ],
 })
 export class MaterialModule { }
