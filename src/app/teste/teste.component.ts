@@ -14,7 +14,10 @@ export class TesteComponent implements OnInit {
 
   ngOnInit() {
     this.carregar = true;
-   this.dataSend.getUsers().subscribe((data)=>{this.clientes = data; this.carregar = false});
+    this.dataSend.getUsers().subscribe((data) => {
+      this.clientes = data;
+      this.carregar = false;
+    });
   }
 
 }

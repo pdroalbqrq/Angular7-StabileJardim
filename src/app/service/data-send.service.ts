@@ -10,10 +10,8 @@ export class DataSendService {
 
   config = {
     url: 'http://localhost:3000'
-  }
+  };
 
-  ngOnInit() {
-  }
 
   getUsers() {
     return this.http.get<Cliente[]>(`${this.config.url}/clientes`);
@@ -23,13 +21,13 @@ export class DataSendService {
     return this.http.get<Cliente[]>(`${this.config.url}/clientes/nome/${name}`);
   }
 
-  getOneNumber(number: string) {
-    return this.http.get<Cliente[]>(`${this.config.url}/clientes/numero/${number}`);
+  getOneNumber(num: string) {
+    return this.http.get<Cliente[]>(`${this.config.url}/clientes/numero/${num}`);
   }
 
 
-  getUserEmail(email: string) {
-    return this.http.get<Cliente[]>(`${this.config.url}/clientes/email/${email}`);
+  getUserEmailNumber(email: string, num?: string) {
+    return this.http.get<Cliente[]>(`${this.config.url}/clientes/verificar/${email}/${num}`);
   }
 
   postUser(form: any) {

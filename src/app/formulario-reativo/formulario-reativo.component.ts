@@ -15,66 +15,73 @@ export class FormularioReativoComponent implements OnInit {
     private snackBar: MatSnackBar) { }
 
   formulario;
-  existe = true;
+  existeEmail = true;
+  existeNumero = true;
   progress = false;
-
-  erroEmailObrigatorio = 'Informar um e-mail é obrigatório';
-  nomeErro = 'Nome precisa ser preenchido e ter mais de 3 letras';
-  numeroErro = 'Número é obrigatório';
-  mensagemErro = 'A mensagem não pode estar em branco';
-
 
   ngOnInit() {
 
     this.formulario = this.formBuilder.group({
       nome: [null, [Validators.required, Validators.minLength(4)]],
       email: [null, [Validators.required, Validators.email]],
-      numero: [null, Validators.required],
+      numero: [null, [Validators.required, Validators.minLength(11)]],
       mensagem: [null, Validators.required]
     });
 
   }
-  openSnackBar(message: string, action: string) {
-
+  openSnackBar(message: string, action: string, validar:any) {
     const config = new MatSnackBarConfig();
-    config.panelClass = ['color-snackbar'];
+    config.panelClass = (validar ? ['snack-success'] : ['snack-error']);
     config.duration = 4000;
-
     this.snackBar.open(message, action, config);
   }
 
   onSubmit() {
-
+    this.progress = true;
     const form = this.formulario.value;
     const email = String(form.email);
+    const numero = String(form.numero);
 
     if (this.formulario.valid) {
-      this.dataSend.getUsers().subscribe((data) => {
-        data.forEach(cliente => {
-          if (cliente.email === email) {
-            this.existe = false;
-            console.log(this.existe);
+      this.dataSend.getUserEmailNumber(email, numero).subscribe((data) => {
 
+        if (data.length) {
+          if (data[0].email === email) {
+            this.existeEmail = false;
           }
-        });
+          if (data[0].numero === numero) {
+            this.existeNumero = false;
+          }
+        }
       }, (error => { console.log(error); }),
         () => {
-          if (this.existe === false) {
-            this.openSnackBar('E-mail já cadastrado', 'Confirmar');
+          if (this.existeEmail === false) {
+            this.openSnackBar('E-mail já cadastrado', 'Confirmar', this.existeEmail);
             const emailCss = document.querySelector('#email');
             emailCss.classList.add('ng-touched');
             emailCss.classList.add('ng-invalid');
 
-            this.existe = true;
+            this.existeEmail = true;
+            this.progress = false;
+          } else if (this.existeNumero === false) {
+            this.openSnackBar('Número já cadastrado', 'Confirmar', this.existeNumero);
+            const numeroCss = document.querySelector('#numero');
+            numeroCss.classList.add('ng-touched');
+            numeroCss.classList.add('ng-invalid');
+
+            this.existeEmail = true;
+            this.progress = false;
           } else {
             this.dataSend.postUser(form).subscribe((data) => {
               this.progress = false;
               console.log(data);
               this.formulario.reset();
+              this.openSnackBar('Obrigado, entraremos em contato', 'Confirmar', this.existeNumero);
             });
           }
         });
     } else {
+      console.log('inválido');
       this.verificaValidacoesForm(this.formulario);
     }
   }
@@ -93,6 +100,7 @@ export class FormularioReativoComponent implements OnInit {
         this.verificaValidacoesForm(controle);
       }
     });
+    this.progress = false;
   }
 
   verificaEmail() {

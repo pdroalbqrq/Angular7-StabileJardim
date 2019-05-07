@@ -17,7 +17,6 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { Card1Component } from './home/card1/card1.component';
 import { Card2Component } from './home/card2/card2.component';
-import { FormularioComponent } from './formulario/formulario.component';
 import { DataSendService } from './service/data-send.service';
 import { FormularioReativoComponent } from './formulario-reativo/formulario-reativo.component';
 import { CampoControlErroComponent } from './formulario-reativo/campo-control-erro/campo-control-erro.component';
@@ -37,7 +36,6 @@ import { ErrorMsgComponent } from './formulario-reativo/error-msg/error-msg.comp
     HeaderComponent,
     Card1Component,
     Card2Component,
-    FormularioComponent,
     FormularioReativoComponent,
     CampoControlErroComponent,
     ErrorMsgComponent,

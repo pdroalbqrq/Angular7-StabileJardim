@@ -1,5 +1,5 @@
 <div class="teste">
-    
+    <mat-spinner [diameter]="200" *ngIf="carregar"></mat-spinner>
     <div class="teste1" *ngFor="let c of clientes">
         <h1>{{c.nome}}</h1>
         <p>{{c.email}}</p>

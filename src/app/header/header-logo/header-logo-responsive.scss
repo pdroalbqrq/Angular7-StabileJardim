@@ -1,3 +1,5 @@
+@media only screen and (min-width: 768px) {
+
 header {
   background: rgb(255, 255, 255);
 }
@@ -10,7 +12,7 @@ header {
   background: white;
 }
 .logo .item {
-  margin-top: 20px;
+  margin-top: 40px;
 }
 .horario p {
   margin: 0px;
@@ -28,20 +30,20 @@ header {
 }
 
 .right {
-  grid-column: span 4;
-  margin-right: 5px;
+  grid-column: span 5;
+  text-align: right;
+  margin-right: 150px;
 }
 .left {
-  grid-column: span 4;
-  margin-left: 5px;
+  grid-column: span 5;
+  margin-left: 150px;
 }
 .center {
-  grid-column: span 4;
+  grid-column: span 2;
   margin: 0px;
 }
-
 .center img {
-  width:100px;
+  width:200px;
   cursor: pointer;
   outline: none;
   -webkit-user-select: none;
@@ -67,8 +69,9 @@ header {
   border: 1px solid #cfcc4f;
   background: white;
   font-weight: bold;
-  padding: 5px 10px;
+  padding: 5px 20px;
   outline: none;
   cursor: pointer;
   border-radius: 0px;
+}
 }

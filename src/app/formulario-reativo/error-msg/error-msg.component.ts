@@ -9,8 +9,6 @@ import { FormValidations } from '../form-validations';
 })
 export class ErrorMsgComponent implements OnInit {
 
-  // @Input() mostrarErro: boolean;
-  // @Input() mensagemErro: string;
 
   @Input() label: string;
   @Input() control: FormControl;
@@ -24,7 +22,7 @@ export class ErrorMsgComponent implements OnInit {
 
     for(const propertyName in this.control.errors){
       if(this.control.errors.hasOwnProperty(propertyName) &&
-         this.control.touched){
+         this.control.touched) {
            return FormValidations.getErrorMsg(this.label, propertyName, this.control.errors[propertyName]);
          }
     }

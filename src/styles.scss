@@ -12,15 +12,29 @@ mat-progress-bar .mat-progress-bar-fill::after {
   }
 
 mat-progress-bar .mat-progress-bar-buffer {
-    background: rgb(255, 255, 255);
+    background: #CFCC4F !important;
   }
 
 mat-progress-bar .mat-progress-bar {
     border-radius: 2px;
   }
-.color-snackbar {
+
+.snack-success {
     background: #CFCC4F !important;
     border:2px solid #222d30;
     color:#222d30;
     font-weight: bold;
+
   }
+
+.snack-error {
+    background: #222d30 !important;
+    border:2px solid #ff0015;
+    color:#ff0015;
+    font-weight: bold;
+    .mat-simple-snackbar-action {
+      color: #ff0015 !important;
+  }
+  }
+
+

@@ -1,8 +1,25 @@
 #navbarrow{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: right;
+    justify-content: right;
 }
 button{
     text-align: center;
 }
+
+.mat-menu{
+  background-color: #222d30 !important;
+}
+
+.mat-menu-content {
+  background-color: #222d30 !important;
+}
+.mat-menu-item {
+  background-color: #222d30 !important;
+}
+
+button.mat-menu-item{
+    background-color: #222d30;
+    color:white;
+}
+

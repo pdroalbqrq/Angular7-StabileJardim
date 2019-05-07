@@ -3,21 +3,22 @@
     <div class="col1">
 
       <label for="nome">Nome *</label>
-      <input id="nome" type="text" formControlName="nome">
+      <input id="nome" type="text" formControlName="nome" mask="S*">
       <app-error-msg [control]="formulario.get('nome')" label="Nome">
       </app-error-msg>
 
       <div class="margemInput">
         <label for="email">E-mail *</label>
         <input id="email" type="text" formControlName="email">
-        <app-campo-control-erro [mostrarErro]="verificaValidTouched('email')" [mensagemErro]="erroEmailObrigatorio"> </app-campo-control-erro>
+        <app-error-msg [control]="formulario.get('email')" label="E-mail">
+        </app-error-msg>
       </div>
 
       <div class="margemInput">
         <label for="numero">WhatsApp *</label>
         <input id="numero" type="text" formControlName="numero" mask="(00) 00000-0000">
-        <app-campo-control-erro [mostrarErro]="verificaValidTouched('numero')" [mensagemErro]="numeroErro">
-        </app-campo-control-erro>
+        <app-error-msg [control]="formulario.get('numero')" label="Número">
+        </app-error-msg>
       </div>
 
     </div>
@@ -29,8 +30,8 @@
       </app-campo-control-erro>
 
       <button type="submit" mat-button #botao><span>Enviar</span></button>
-
+      <mat-progress-bar mode="indeterminate" *ngIf="progress"></mat-progress-bar>
     </div>
   </div>
-  <mat-progress-bar mode="indeterminate" *ngIf="progress"></mat-progress-bar>
+
 </form>
