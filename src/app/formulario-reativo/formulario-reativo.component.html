@@ -26,8 +26,8 @@
 
       <label for="mensagem">Mensagem *</label>
       <textarea id="mensagem" type="text" formControlName="mensagem" rows="5"></textarea>
-      <app-campo-control-erro [mostrarErro]="verificaValidTouched('mensagem')" [mensagemErro]="mensagemErro">
-      </app-campo-control-erro>
+      <app-error-msg [control]="formulario.get('mensagem')" label="Mensagem">
+      </app-error-msg>
 
       <button type="submit" mat-button #botao><span>Enviar</span></button>
       <mat-progress-bar mode="indeterminate" *ngIf="progress"></mat-progress-bar>

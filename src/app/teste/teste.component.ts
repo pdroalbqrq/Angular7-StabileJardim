@@ -8,7 +8,7 @@ import { DataSendService } from '../service/data-send.service';
   styleUrls: ['./teste.component.scss']
 })
 export class TesteComponent implements OnInit {
-  carregar: boolean = true;
+  carregar = true;
   clientes;
   constructor(private dataSend: DataSendService) { }
 

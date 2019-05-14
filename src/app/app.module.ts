@@ -1,7 +1,11 @@
+import { AuthGuard } from './guards/auth.guard';
+import { AuthService } from './service/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MaterialModule } from './material/material.module'
-import { NgxMaskModule } from 'ngx-mask'
+import { MaterialModule } from './material/material.module';
+import { NgxMaskModule } from 'ngx-mask';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorService } from './service/interceptor.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +25,9 @@ import { DataSendService } from './service/data-send.service';
 import { FormularioReativoComponent } from './formulario-reativo/formulario-reativo.component';
 import { CampoControlErroComponent } from './formulario-reativo/campo-control-erro/campo-control-erro.component';
 import { ErrorMsgComponent } from './formulario-reativo/error-msg/error-msg.component';
+import { AdminComponent } from './admin/admin.component';
+import { LoginComponent } from './admin/login/login.component';
+import { CadastroComponent } from './admin/cadastro/cadastro.component';
 
 
 @NgModule({
@@ -39,6 +46,10 @@ import { ErrorMsgComponent } from './formulario-reativo/error-msg/error-msg.comp
     FormularioReativoComponent,
     CampoControlErroComponent,
     ErrorMsgComponent,
+    AdminComponent,
+    LoginComponent,
+    CadastroComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -47,9 +58,16 @@ import { ErrorMsgComponent } from './formulario-reativo/error-msg/error-msg.comp
     MaterialModule,
     FormsModule,
     NgxMaskModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [DataSendService],
+  providers: [ DataSendService,
+                AuthService,
+                AuthGuard,
+                { provide: HTTP_INTERCEPTORS,
+                  useClass: InterceptorService,
+                  multi: true
+                },
+             ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -29,7 +29,7 @@ export class FormularioReativoComponent implements OnInit {
     });
 
   }
-  openSnackBar(message: string, action: string, validar:any) {
+  openSnackBar(message: string, action: string, validar: any) {
     const config = new MatSnackBarConfig();
     config.panelClass = (validar ? ['snack-success'] : ['snack-error']);
     config.duration = 4000;
@@ -47,15 +47,18 @@ export class FormularioReativoComponent implements OnInit {
 
         if (data.length) {
           if (data[0].email === email) {
+            console.log(data);
             this.existeEmail = false;
           }
           if (data[0].numero === numero) {
+            console.log(data);
             this.existeNumero = false;
           }
         }
       }, (error => { console.log(error); }),
         () => {
           if (this.existeEmail === false) {
+
             this.openSnackBar('E-mail já cadastrado', 'Confirmar', this.existeEmail);
             const emailCss = document.querySelector('#email');
             emailCss.classList.add('ng-touched');
@@ -88,6 +91,7 @@ export class FormularioReativoComponent implements OnInit {
 
 
 
+
   verificaValidTouched(campo) {
     return !this.formulario.get(campo).valid && (this.formulario.get(campo).touched || this.formulario.get(campo).dirty);
   }
@@ -106,7 +110,7 @@ export class FormularioReativoComponent implements OnInit {
   verificaEmail() {
     const campoEmail = this.formulario.get('email');
     if (campoEmail.errors) {
-      return campoEmail.errors[`email`] && campoEmail.touched;
+      return campoEmail.errors[`email`] && campoEmail.dirty;
     }
   }
 

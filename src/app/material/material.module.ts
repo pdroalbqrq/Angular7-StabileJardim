@@ -11,6 +11,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatProgressSpinnerModule,
     MatProgressBarModule,
     MatSnackBarModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatInputModule,
+    MatTooltipModule
 
   ],
   exports: [
@@ -42,7 +46,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatProgressSpinnerModule,
     MatProgressBarModule,
     MatSnackBarModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatInputModule,
+    MatTooltipModule
   ],
 })
 export class MaterialModule { }

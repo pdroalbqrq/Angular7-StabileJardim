@@ -1,0 +1,27 @@
+
+
+
+
+<section id="cabecalho">
+  <h2>cabeçalho primeira linha</h2>
+  <form #f="ngForm" (ngSubmit)="confirmarFormulario(f)">
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="E-mail" id="email" type="text" name="email" [(ngModel)]="info.email">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Telefone" id="phone" type="text" mask="(00) 00000-0000" name="phone" [(ngModel)]="info.numero">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Rede Social:" id="social" type="text" name="social" [(ngModel)]="info.social" mask="@A*">
+    </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Confirmar <i class="fas fa-angle-right"></i></button>
+
+</form>
+</section>
+
+
+<p class="usuarioLogado" >Usuário Logado: {{ usuario.nome }}<i matTooltip="Sair" class="fas fa-sign-out-alt" (click)="logout()"></i></p>

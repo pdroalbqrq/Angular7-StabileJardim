@@ -1,0 +1,26 @@
+#cabecalho{
+  margin:0 auto;
+  width:70%;
+  text-align: center;
+}
+
+mat-form-field{
+  margin: 10px;
+}
+
+.usuarioLogado{
+  font-size: 20px;
+  font-weight: bold;
+  i{
+    color:red;
+    font-size: 2rem;
+    width:20px;
+    cursor: pointer;
+    margin-left: 15px;
+    vertical-align:middle;
+  }
+}
+
+button i{
+  vertical-align:middle;
+}

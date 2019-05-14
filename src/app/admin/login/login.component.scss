@@ -1,6 +1,6 @@
 input[type="text"],
-select,
-textarea {
+input[type="password"],
+select {
   width: 100%;
   padding: 7px 20px;
   margin: 0px 0px 0px 0px;
@@ -13,13 +13,6 @@ textarea {
   box-sizing: border-box;
 }
 
-.margemforms{
-  margin-top: 11px;
-}
-
-textarea {
-  resize: none;
-}
 
 button {
   width: 100%;
@@ -44,35 +37,19 @@ input[type="submit"]:hover {
   background-color: #192224;
 }
 
-.margemInput{
-    margin-top: 11px
-}
-
 label {
   font-weight: bold;
   color: #222d30;
 }
 
-.row {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  width: 100%;
-  margin: 0 auto;
+.container{
+    width:25%;
+    margin:0 auto;
+    margin-top: 6%;
 }
-.col1 {
-  grid-column: span 6;
-  margin: 20px;
-  margin-top: 30px;
+.container h1{
+  text-align: center;
+  font-size: 40px;
 }
-
-.col2 {
-  grid-column: span 6;
-  margin: 20px;
-  margin-top: 30px;
-}
-
-// .ng-invalid.ng-touched:not(form){
-//   border: 2px solid rgb(255, 0, 64);
-// }
 
 

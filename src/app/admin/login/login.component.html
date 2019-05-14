@@ -1,0 +1,23 @@
+<form class="formularioLogin-reativo" [formGroup]="formularioLogin" (ngSubmit)="logar()">
+    <div class="container">
+        <h1>ADMINISTRAÇÃO</h1>
+      <img draggable="false" src="../../../assets/logo/Homepage_Logo.png" alt=""><br>
+
+          <label for="email" >E-mail *</label>
+          <input id="email" type="text" formControlName="email" matTooltip="Digite o E-mail de administrador">
+          <app-error-msg [control]="formularioLogin.get('email')" label="E-mail">
+          </app-error-msg>
+
+
+          <label for="senha" >Senha *</label>
+          <input id="senha" type="password" formControlName="senha" matTooltip="Digite a senha de administrador">
+          <app-error-msg [control]="formularioLogin.get('senha')" label="Senha">
+          </app-error-msg>
+
+
+        <button type="submit" mat-button #botao><span>Entrar</span></button>
+        <mat-progress-bar mode="indeterminate" *ngIf="progress"></mat-progress-bar>
+
+      </div>
+
+  </form>
